@@ -1,0 +1,30 @@
+<h2>Micropost#show</h2>
+
+<div class="micropost">
+  <h4>Micropost</h4>
+  <%= @micropost.content %>
+  <%= @micropost.user.name %>
+</div>
+
+<div class="comment-feed">
+  <h4>Comments</h4>
+  <% @micropost.comments.each do |comment| %>
+    <li>
+      <%= comment.content %>
+    </li>
+  <% end %>
+</div>
+
+<div class="comment-form">
+  <h4>Comments</h4>
+  <%= form_for(@comment) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "Comment" %>
+    </div>
+    <div class="field-hide">
+      <%= f.hidden_field :micropost_id, value: @micropost.id %>
+    </div>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -26,6 +26,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     email = "foo@bar.com"
     patch user_path(@user), params: { user: { name:  name,
                                               email: email,
+                                              user_name: 'sadfasdfasdfa',
                                               password:              "",
                                               password_confirmation: "" } }
     assert_not flash.empty?
