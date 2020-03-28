@@ -4,6 +4,8 @@
   <h4>Micropost</h4>
   <%= @micropost.content %>
   <%= @micropost.user.name %>
+  <%= @micropost.likes.count %>users liked
+  <%= render "microposts/like", micropost: @micropost %>
 </div>
 
 <div class="comment-feed">
