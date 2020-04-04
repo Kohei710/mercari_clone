@@ -1,9 +1,12 @@
 <h2>Micropost#show</h2>
 
+<span class="user">
+  <%= link_to @micropost.user.name, @micropost.user %>
+  <%= link_to gravatar_for(@micropost.user, size: 50), micropost_path(@micropost) %>
+</span>
+
 <div class="micropost">
-  <h4>Micropost</h4>
   <%= @micropost.content %>
-  <%= @micropost.user.name %>
   <%= render "microposts/like", micropost: @micropost %>
 </div>
 
@@ -29,3 +32,7 @@
     <%= f.submit "Comment", class: "btn btn-primary" %>
   <% end %>
 </div>
+
+<span class="timestamp">
+    <%= render "microposts/delete", micropost: @micropost %>
+</span>
