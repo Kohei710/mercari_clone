@@ -4,7 +4,6 @@
   <h4>Micropost</h4>
   <%= @micropost.content %>
   <%= @micropost.user.name %>
-  <%= @micropost.likes.count %>users liked
   <%= render "microposts/like", micropost: @micropost %>
 </div>
 
@@ -27,6 +26,6 @@
     <div class="field-hide">
       <%= f.hidden_field :micropost_id, value: @micropost.id %>
     </div>
-    <%= f.submit "Post", class: "btn btn-primary" %>
+    <%= f.submit "Comment", class: "btn btn-primary" %>
   <% end %>
 </div>

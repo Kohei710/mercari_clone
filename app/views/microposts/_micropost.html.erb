@@ -5,10 +5,11 @@
     <%= link_to micropost.content, micropost_path(micropost) %>
     <%= image_tag micropost.picture.url if micropost.picture? %>
   </span>
-  <span class="like">
-    <%= micropost.likes.count %>user liked
 
+  <span class="like">
+    <%= render "microposts/like", micropost: micropost %>
   </span>
+
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>

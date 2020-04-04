@@ -6,6 +6,9 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <hi>
+        <%= @user.microposts.count %>posts
+      </hi>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
