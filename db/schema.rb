@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20200404052347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["micropost_id"], name: "index_likes_on_micropost_id"
+    t.index ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20200404052347) do
     t.string "picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+    t.index [nil], name: "index_microposts_on_micropost_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20200404052347) do
     t.datetime "reset_sent_at"
     t.string "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index [nil], name: "index_users_on_user_id"
   end
 
 end
