@@ -7,14 +7,14 @@ class LikesController < ApplicationController
     like.user = current_user
     like.save
 
-
     redirect_back(fallback_location: micropost_path(micropost))
   end
 
   def destroy
-    micropost = Micropost.find(params[:micropost_id])
-    like = micropost.likes
-    like.destroy
-  end
+    micropost = Like.find(params[:id]).micropost
+    micropost.likes.find_by(micropost_id: micropost.id).destroy
 
+    redirect_back(fallback_location: micropost_path(micropost))
+  end
 end
+
