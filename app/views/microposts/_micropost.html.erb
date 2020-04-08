@@ -1,4 +1,29 @@
-<li id="micropost-<%= micropost.id %>">
+<li class="card" id="micropost-<%= micropost.id %>">
+
+  <span class="user">
+    <%= link_to micropost.user.name, micropost.user %>
+    <%= link_to gravatar_for(micropost.user, size: 50), micropost_path(micropost) %>
+  </span>
+
+  <span class="content">
+    <%= micropost.content %>
+    <%= image_tag micropost.picture.url if micropost.picture? %>
+  </span>
+
+  <span class="like">
+    <%= render "microposts/like", micropost: micropost %>
+  </span>
+
+  <span class="timestamp">
+    <%= render "microposts/delete", micropost: micropost %>
+  </span>
+
+  <h5>
+    <%= link_to "view this post", micropost_path(micropost) %>
+  </h5>
+</li>
+
+<li class="card" id="micropost-<%= micropost.id %>">
 
   <span class="user">
     <%= link_to micropost.user.name, micropost.user %>
