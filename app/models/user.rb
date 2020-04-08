@@ -108,6 +108,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def already_liked?(post)
+    self.likes.exists?(micropost_id: post.id)
+  end
+
   private
 
   # メールアドレスをすべて小文字にする

@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :logged_in_user, only: [:create]
 
   def create
-    micropost = Micropost.find(params[:post_id])
+    micropost = Micropost.find(params[:micropost_id])
     like = micropost.likes.build
     like.user = current_user
     like.save
@@ -12,6 +12,9 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    micropost = Micropost.find(params[:micropost_id])
+    like = micropost.likes
+    like.destroy
   end
 
 end
