@@ -3,9 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-button.btn.btn-default.btn-xs {
+button.btn {
   color: lightcoral;
-  font-size: 20px;
+  font-size: 23px;
   float: right;
-  margin-top: 10px;
+  padding: 1px;
+  text-align: center;
+  border: 1px solid #eee;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+button.btn:hover {
+  color: lightcoral;
 }

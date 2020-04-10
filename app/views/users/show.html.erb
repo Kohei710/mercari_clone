@@ -24,9 +24,4 @@
       <%= will_paginate @microposts %>
     <% end %>
   </div>
-  <h3>いいねしている投稿</h3>
-  <% @user.likes.each do |like| %>
-    <%= like.micropost.user.name %>
-    <%= like.micropost.content %>
-  <% end %>
 </div>

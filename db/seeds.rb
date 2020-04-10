@@ -21,9 +21,13 @@ User.create!(name:  "Example User",
 end
 
 users = User.order(:created_at).take(6)
+image_path = File.join(Rails.root, "app/assets/images/kitten.jpg")
 50.times do
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
+
+  users.each { |user|
+    user.microposts.create!(content: content,
+        picture: File.new(image_path))}
 end
 
 # リレーションシップ
