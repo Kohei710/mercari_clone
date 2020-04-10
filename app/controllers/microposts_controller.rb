@@ -7,6 +7,10 @@ class MicropostsController < ApplicationController
     @comment = @micropost.comments.build
   end
 
+  def new
+    @micropost  = current_user.microposts.build
+  end
+
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
@@ -23,6 +27,8 @@ class MicropostsController < ApplicationController
     flash[:success] = "Micropost deleted"
     redirect_to root_url
   end
+
+
 
   private
 
