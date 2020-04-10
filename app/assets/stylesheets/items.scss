@@ -1,4 +1,4 @@
-// Place all the styles related to the Microposts controller here.
+// Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap-sprockets";
@@ -11,7 +11,7 @@
 .comment-form {
   margin-top: 20px;
 }
-.micropost {
+.item {
   font-size: 20px;
 }
 //.card {
@@ -24,9 +24,9 @@
 //  float: left;
 //}
 
-/* microposts */
+/* items */
 
-.microposts {
+.items {
   list-style: none;
   padding: 0;
   li {

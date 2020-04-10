@@ -10,37 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200404052347) do
+ActiveRecord::Schema.define(version: 20200410134735) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.integer "user_id"
-    t.integer "micropost_id"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["micropost_id"], name: "index_comments_on_micropost_id"
+    t.index ["item_id"], name: "index_comments_on_item_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "micropost_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["micropost_id"], name: "index_likes_on_micropost_id"
-    t.index ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "microposts", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
+    t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_items_on_user_id"
     t.index [nil], name: "index_microposts_on_micropost_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_likes_on_item_id"
+    t.index ["user_id", nil], name: "index_likes_on_user_id_and_micropost_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 20200404052347) do
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "user_id"
-    t.integer "micropost_id"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["micropost_id"], name: "index_reviews_on_micropost_id"
+    t.index ["item_id"], name: "index_reviews_on_item_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 

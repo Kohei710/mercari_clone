@@ -26,7 +26,7 @@ image_path = File.join(Rails.root, "app/assets/images/kitten.jpg")
   content = Faker::Lorem.sentence(5)
 
   users.each { |user|
-    user.microposts.create!(content: content,
+    user.items.create!(content: content,
         picture: File.new(image_path))}
 end
 

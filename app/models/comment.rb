@@ -2,11 +2,11 @@ class Comment < ApplicationRecord
 
   ### ASSOCIATION
   belongs_to :user
-  belongs_to :micropost
+  belongs_to :item
 
   ### VALIDATION
   validates :user_id, presence: true
-  validates :micropost_id, presence: true
+  validates :item_id, presence: true
   validates :content, presence: true, length: { maximum: 255 }
 
   ### SCOPE

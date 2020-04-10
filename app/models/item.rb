@@ -1,4 +1,4 @@
-class Micropost < ActiveRecord::Base
+class Item < ActiveRecord::Base
 
   ### ASSOCIATION
   belongs_to :user

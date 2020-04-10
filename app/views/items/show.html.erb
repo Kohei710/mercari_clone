@@ -1,18 +1,18 @@
-<h2>Micropost#show</h2>
+<h2>Item#show</h2>
 
 <span class="user">
-  <%= link_to @micropost.user.name, @micropost.user %>
-  <%= link_to gravatar_for(@micropost.user, size: 50), micropost_path(@micropost) %>
+  <%= link_to @item.user.name, @item.user %>
+  <%= link_to gravatar_for(@item.user, size: 50), item_path(@item) %>
 </span>
 
-<div class="micropost">
-  <%= @micropost.content %>
-  <%= render "microposts/like", micropost: @micropost %>
+<div class="item">
+  <%= @item.content %>
+  <%= render "items/like", item: @item %>
 </div>
 
 <div class="comment-feed">
   <h4>Comments</h4>
-  <% @micropost.comments.each do |comment| %>
+  <% @item.comments.each do |comment| %>
     <li>
       <%= comment.content %>
     </li>
@@ -27,12 +27,12 @@
       <%= f.text_area :content, placeholder: "Comment" %>
     </div>
     <div class="field-hide">
-      <%= f.hidden_field :micropost_id, value: @micropost.id %>
+      <%= f.hidden_field :item_id, value: @item.id %>
     </div>
     <%= f.submit "Comment", class: "btn btn-primary" %>
   <% end %>
 </div>
 
 <span class="timestamp">
-    <%= render "microposts/delete", micropost: @micropost %>
+    <%= render "items/delete", item: @item %>
 </span>
