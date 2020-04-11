@@ -72,6 +72,7 @@ body {
   height: 210px;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
+  z-index: 2;
 
   .sample {
     position: relative;
@@ -94,8 +95,26 @@ body {
   padding: 10px;
   height: 50px;
 }
-.card-text {
-  color: #777;
-  font-size: 14px;
-  line-height: 1.5;
+
+.syuppin input {
+  position: fixed; right: 30px; bottom: 30px;
+  display: block;
+  transition:
+          right 0.2s ease-out 0s,
+          bottom 0.2s ease-out 0s,
+          opacity 0.2s ease-out 0s,
+          transform 0.2s ease-out 0s;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border: 0;
+  font-size: 30px;
+  text-decoration: none;
+  text-align: center;
+  color: #FFFFFF;
+  background: #ea352d;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  z-index: 1;
 }

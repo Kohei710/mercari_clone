@@ -7,10 +7,10 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
-      <section class="item_form">
-        <%= link_to "出品", new_item_path %>
-      </section>
     </aside>
+    <div class="syuppin">
+      <%= button_to "出品", new_item_path, method: :get %>
+    </div>
     <div class="col-md-8">
       <h3>Items Feed</h3>
       <%= render 'shared/feed' %>
