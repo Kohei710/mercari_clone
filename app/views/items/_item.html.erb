@@ -1,7 +1,7 @@
 <%= link_to(item_path(item)) do %>
   <section class="card" id="item-<%= item.id %>">
     <div class="sample">
-      <%= image_tag item.picture.url, {class: "picture"} if item.picture? %>
+      <%= image_tag item.picture.url, {class: "picture"} %>
       <%= render "items/like", item: item %>
     </div>
     <div class="card-content">

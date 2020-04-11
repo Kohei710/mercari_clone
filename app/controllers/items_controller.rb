@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:content, :picture)
+    params.require(:item).permit(:content, :picture, :delivery_area)
   end
 
   def correct_user

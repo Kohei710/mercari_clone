@@ -4,9 +4,12 @@
   <%= link_to @item.user.name, @item.user %>
   <%= link_to gravatar_for(@item.user, size: 50), item_path(@item) %>
 </span>
-
+<%= image_tag @item.picture.url, {class: "picture"} %>
 <div class="item">
   <%= @item.content %>
+  <br>
+  <%= @item.delivery_area %>
+  <br>
   <%= render "items/like", item: @item %>
 </div>
 
