@@ -74,7 +74,7 @@ body {
   box-shadow: 0 2px 5px #ccc;
   z-index: 2;
 
-  .sample {
+  .card-picture {
     position: relative;
     width: 100%;
     height: auto;
@@ -96,7 +96,7 @@ body {
   height: 50px;
 }
 
-.syuppin input {
+.to-sell-btn input {
   position: fixed; right: 30px; bottom: 30px;
   display: block;
   transition:

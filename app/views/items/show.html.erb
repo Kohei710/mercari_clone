@@ -4,12 +4,18 @@
   <%= link_to @item.user.name, @item.user %>
   <%= link_to gravatar_for(@item.user, size: 50), item_path(@item) %>
 </span>
-<%= image_tag @item.picture.url, {class: "picture"} %>
+
 <div class="item">
-  <%= @item.content %>
-  <br>
-  <%= @item.delivery_area %>
-  <br>
+  <%= image_tag @item.picture.url, {class: "picture"} %>
+  <%= @item.name %><br>
+  <%= @item.content %><br>
+  発送元の地域:<%= @item.delivery_area %><br>
+  価格:<%= @item.price %>円<br>
+  カテゴリー:<%= @item.category %><br>
+  発送までの日数:<%= @item.days_to_ship %><br>
+  商品の状態:<%= @item.condition %><br>
+  送料:<%= @item.shipping_fee %><br>
+
   <%= render "items/like", item: @item %>
 </div>
 
