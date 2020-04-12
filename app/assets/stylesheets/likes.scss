@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-button.btn {
+button.like-btn {
   color: lightcoral;
   font-size: 23px;
   float: right;
@@ -13,6 +13,13 @@ button.btn {
   border: none;
   background-color: rgba(0,0,0,0);
 }
-button.btn:hover {
-  color: lightcoral;
+button.unlike-btn {
+  color: gray;
+  font-size: 23px;
+  float: right;
+  padding: 1px;
+  text-align: center;
+  border: 1px solid #eee;
+  border: none;
+  background-color: rgba(0,0,0,0);
 }

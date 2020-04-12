@@ -3,6 +3,7 @@
     <div class="card-picture">
       <%= image_tag item.picture.url, {class: "picture"} %>
       <%= render "items/like", item: item %>
+      <%= item.price if item.price %>
     </div>
     <div class="card-content">
       <%= item.content %>

@@ -14,7 +14,7 @@ class Item < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validate  :picture_size
   validates :picture, presence: true
-  validates :delivery_area, presence: true
+  # validates :delivery_area, presence: true
 
 
   enum category: {
