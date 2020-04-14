@@ -7,7 +7,7 @@
 
 $gray-medium-light: #eaeaea;
 body {
-  background-color: $gray-medium-light;
+  background-color: white;
 }
 
 header {
@@ -27,6 +27,10 @@ header {
 .navbar-inverse {
   background-color: white;
   border-color: #090909;
+
+  .container {
+    height: 70px;
+  }
 }
 
 
