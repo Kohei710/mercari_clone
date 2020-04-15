@@ -74,7 +74,6 @@ body {
   background: #fff;
   width: 160px;
   height: 210px;
-  border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
   z-index: 2;
 
@@ -84,7 +83,6 @@ body {
     height: auto;
 
     .picture {
-      border-radius: 5px 5px 0 0;
       max-width: 100%;
       height: auto;
     }
@@ -103,6 +101,20 @@ body {
       background-color: rgba( 51, 51, 51, 0.6 );
       color: white;
       border-radius: 0 10px 10px 0;
+
+    }
+    .sold-mark {
+      transform: rotate(-45deg);
+      position: absolute;
+      width: 200px;
+      top: -25px;
+      text-align: center;
+      left: -90px;
+      padding-top: 50px;
+      background-color: #ea352d;
+      color: white;
+      letter-spacing: 2px;
+      font-weight: 600;
     }
   }
 }
