@@ -10,7 +10,7 @@
   <%= @item.name %><br>
   <%= @item.content %><br>
   発送元の地域:<%= @item.delivery_area %><br>
-  価格:<%= @item.price %>円<br>
+  価格:<%= @item.price.to_s(:delimited) %>円<br>
   カテゴリー:<%= @item.category %><br>
   発送までの日数:<%= @item.days_to_ship %><br>
   商品の状態:<%= @item.condition %><br>

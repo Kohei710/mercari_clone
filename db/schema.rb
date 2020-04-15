@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200412065710) do
+ActiveRecord::Schema.define(version: 20200414152834) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20200412065710) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_likes_on_item_id"
-    t.index ["user_id", nil], name: "index_likes_on_user_id_and_micropost_id", unique: true
+    t.index ["user_id", "item_id"], name: "index_likes_on_user_id_and_item_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
