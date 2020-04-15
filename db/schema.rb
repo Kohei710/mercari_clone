@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200412065710) do
+ActiveRecord::Schema.define(version: 20200415134626) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20200412065710) do
     t.integer "shipping_fee"
     t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_items_on_user_id"
-    t.index [nil], name: "index_microposts_on_micropost_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -46,7 +45,7 @@ ActiveRecord::Schema.define(version: 20200412065710) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_likes_on_item_id"
-    t.index ["user_id", nil], name: "index_likes_on_user_id_and_micropost_id", unique: true
+    t.index ["user_id", "item_id"], name: "index_likes_on_user_id_and_item_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -70,6 +69,16 @@ ActiveRecord::Schema.define(version: 20200412065710) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "user_id"
+    t.integer "delivery_status", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_transactions_on_item_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -85,7 +94,6 @@ ActiveRecord::Schema.define(version: 20200412065710) do
     t.datetime "reset_sent_at"
     t.string "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index [nil], name: "index_users_on_user_id"
   end
 
 end
