@@ -2,17 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.like {
+  .like-btn {
+    color: lightcoral;
+    font-size: 23px;
+    float: right;
+    padding: 1px;
+    text-align: center;
+    border: 1px solid #eee;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
 
-button.btn {
-  color: lightcoral;
-  font-size: 23px;
-  float: right;
-  padding: 1px;
-  text-align: center;
-  border: 1px solid #eee;
-  border: none;
-  background-color: rgba(0,0,0,0);
-}
-button.btn:hover {
-  color: lightcoral;
+  .unlike-btn {
+    color: gray;
+    font-size: 23px;
+    float: right;
+    padding: 1px;
+    text-align: center;
+    border: 1px solid #eee;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
 }
