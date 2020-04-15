@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :transactions, dependent: :destroy
 
   ###  VALIDATIONS
 
@@ -54,6 +55,9 @@ class Item < ActiveRecord::Base
       出品者負担:1, 購入者負担:2
   }
 
+  def sold?(item)
+    item.transactions.exists?(item_id: item.id)
+  end
 
 
   private
