@@ -1,11 +1,12 @@
 class Item < ActiveRecord::Base
 
   ### ASSOCIATION
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :transactions, dependent: :destroy
+  has_one :dealing, class_name: Dealing
 
   ###  VALIDATIONS
 
@@ -25,13 +26,12 @@ class Item < ActiveRecord::Base
 
 
   enum category: {
-      レディース:1, メンズ:2, ベビー・キッズ:3,　インテリア・住まい・小物:4,
+      レディース:1, メンズ:2, ベビー・キッズ:3, インテリア・住まい・小物:4,
       本・音楽・ゲーム:5, おもちゃ・ホビー・グッズ:6, コスメ・香水・美容:7, 家電・スマホ・カメラ:8,
       スポーツ・レジャー:9, ハンドメイド:10, チケット:11, 自動車・オートバイ:12, その他:13
   }
 
   enum delivery_area: {
-      "----":0,
       北海道:1, 青森県:2, 岩手県:3, 宮城県:4, 秋田県:5, 山形県:6, 福島県:7,
       茨城県:8, 栃木県:9, 群馬県:10, 埼玉県:11, 千葉県:12, 東京都:13, 神奈川県:14,
       新潟県:15, 富山県:16, 石川県:17, 福井県:18, 山梨県:19, 長野県:20,
@@ -56,9 +56,8 @@ class Item < ActiveRecord::Base
   }
 
   def sold?(item)
-    item.transactions.exists?(item_id: item.id)
+    item.dealing.present?
   end
-
 
   private
 

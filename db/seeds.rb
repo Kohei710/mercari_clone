@@ -31,7 +31,7 @@ image_path = File.join(Rails.root, "app/assets/images/kitten.jpg")
     user.items.create!(
         content: Faker::Lorem.sentence(5),
         picture: File.new(image_path),
-        delivery_area: rand(47),
+        delivery_area: rand(1..47),
         name: Faker::Lorem.word,
         price: rand(100..100000),
         category: rand(1..3),

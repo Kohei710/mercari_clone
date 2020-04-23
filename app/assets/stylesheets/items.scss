@@ -65,16 +65,12 @@
     }
   }
 }
-body {
-  background: #eee;
-}
 .card {
   float: left;
-  margin: 20px 10px;
+  margin: 0 0 20px 20px;
   background: #fff;
   width: 160px;
-  height: 210px;
-  box-shadow: 0 2px 5px #ccc;
+  height: 218px;
   z-index: 2;
 
   .card-picture {
@@ -107,14 +103,16 @@ body {
       transform: rotate(-45deg);
       position: absolute;
       width: 200px;
-      top: -25px;
+      top: -30px;
       text-align: center;
-      left: -90px;
+      left: -89px;
       padding-top: 50px;
+      padding-bottom: 2px;
       background-color: #ea352d;
       color: white;
-      letter-spacing: 2px;
-      font-weight: 600;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      font-size: 18px;
     }
   }
 }

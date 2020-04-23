@@ -18,16 +18,16 @@
     <%= f.select :category, Item.categories.keys, {}, {class: 'hoge'} %><br><br>
 
     <%= f.label :condition, "商品の状態" %>
-    <%= f.select :condition, Item.conditions.keys, {}, {class: 'hoge'} %><br><br>
+    <%= f.select :condition, Item.conditions.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
 
     <%= f.label :delivery_area, "配送元の地域" %>
-    <%= f.select :delivery_area, Item.delivery_areas.keys, {}, {class: 'hoge'} %><br><br>
+    <%= f.select :delivery_area, Item.delivery_areas.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
 
-    <%= f.label :shipping_fee, "送料" %>
-    <%= f.select :shipping_fee, Item.shipping_fees.keys, {}, {class: 'hoge'} %><br><br>
+    <%= f.label :shipping_fee, "送料負担" %>
+    <%= f.select :shipping_fee, Item.shipping_fees.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
 
     <%= f.label :days_to_ship, "発送までの日数" %>
-    <%= f.select :days_to_ship, Item.days_to_ships.keys, {}, {class: 'hoge'} %><br><br>
+    <%= f.select :days_to_ship, Item.days_to_ships.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
 
 
   </div>

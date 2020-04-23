@@ -24,6 +24,13 @@ Rails.application.routes.draw do
       get :reviewing, :reviewers
     end
   end
+  resources :dealings, only: [:create, :new, :show] do
+    member do
+      post :new, path: :new, as: :new, action: :back
+      get :confirm
+      patch :update_status
+    end
+  end
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
@@ -31,5 +38,4 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   resources :comments,            only: [:create]
   resources :likes,               only: [:create, :destroy]
-  resources :transactions,        only: [:create]
 end

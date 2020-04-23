@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :transactions, dependent: :destroy
+  has_one :dealing, class_name: Dealing
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email

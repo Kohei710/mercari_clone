@@ -1,0 +1,11 @@
+<h2>購入内容の確認</h2>
+
+
+<div class="item">
+  <%= image_tag @item.picture.url, {class: "picture"} %>
+  <%= @item.name %><br>
+  価格:<%= @item.price.to_s(:delimited) %>円<br>
+</div>
+
+<%= render "items/buy", item: @item %>
+<%= link_to "戻る", (item_path(@item)), class: "btn btn-primary" %>
