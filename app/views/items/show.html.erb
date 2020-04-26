@@ -20,9 +20,9 @@
 </div>
 <% if @item.sold?(@item) %>
   <div class="btn btn-primary">売り切れました</div>
-  <%= link_to "取引ページ", dealing_path(@item.id), class: "btn btn-primary" %>
+  <%= link_to "取引ページ", dealing_path(@item.dealing), class: "btn btn-primary" %>
 <% else %>
-  <%= link_to "購入画面に進む", confirm_dealing_path(@item.id), class: "btn btn-primary" %>
+  <%= link_to "購入画面に進む", new_dealing_path(:item_id => @item.id), class: "btn btn-primary" %>
 <% end %>
 <div class="comment-feed">
   <h4>Comments</h4>

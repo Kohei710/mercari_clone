@@ -26,9 +26,8 @@ Rails.application.routes.draw do
   end
   resources :dealings, only: [:create, :new, :show] do
     member do
-      post :new, path: :new, as: :new, action: :back
-      get :confirm
-      patch :update_status
+      patch :update_to_delivering
+      patch :update_to_completed
     end
   end
   resources :users

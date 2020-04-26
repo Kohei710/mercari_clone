@@ -1,8 +1,0 @@
-<% if item.sold?(item) %>
-  <div class="btn btn-primary">売り切れました</div>
-<% else %>
-  <%= form_for(item.build_dealing) do |f| %>
-    <div><%= hidden_field_tag :item_id, item.id %></div>
-    <%= f.submit "購入する", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
