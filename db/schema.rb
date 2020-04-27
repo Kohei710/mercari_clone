@@ -22,16 +22,6 @@ ActiveRecord::Schema.define(version: 20200426111836) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "dealings", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "user_id"
-    t.integer "status", default: 1
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_dealings_on_item_id"
-    t.index ["user_id"], name: "index_dealings_on_user_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
