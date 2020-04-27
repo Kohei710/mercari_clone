@@ -22,8 +22,8 @@
     <%= f.label :condition, "商品の状態" %>
     <%= f.select :condition, Item.conditions.keys, {include_blank: true} %><br><br>
 
-    <%= f.label :delivery_area, "配送元の地域" %>
-    <%= f.select :delivery_area, Item.delivery_areas.keys, {include_blank: true} %><br><br>
+    <%= f.label :seller_area, "配送元の地域" %>
+    <%= f.select :seller_area, Item.seller_areas.keys, {include_blank: true} %><br><br>
 
     <%= f.label :shipping_fee, "送料" %>
     <%= f.select :shipping_fee, Item.shipping_fees.keys, {include_blank: true} %><br><br>

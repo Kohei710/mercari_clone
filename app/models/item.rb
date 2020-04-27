@@ -14,7 +14,7 @@ class Item < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 500 }
   validate  :picture_size
   validates :picture, presence: true
-  validates :delivery_area, presence: true
+  validates :seller_area, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :price, presence: true, :numericality => { :greater_than => 0 }
   validates :category, presence: true
@@ -29,7 +29,7 @@ class Item < ActiveRecord::Base
       スポーツ・レジャー:9, ハンドメイド:10, チケット:11, 自動車・オートバイ:12, その他:13
   }
 
-  enum delivery_area: {
+  enum seller_area: {
       "----":0,
       北海道:1, 青森県:2, 岩手県:3, 宮城県:4, 秋田県:5, 山形県:6, 福島県:7,
       茨城県:8, 栃木県:9, 群馬県:10, 埼玉県:11, 千葉県:12, 東京都:13, 神奈川県:14,
