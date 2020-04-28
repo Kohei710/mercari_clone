@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20200427170305) do
     t.integer "category", null: false
     t.integer "days_to_ship", null: false
     t.integer "condition", null: false
-    t.integer "shipping_fee", default: 1, null: false
+    t.integer "shipping_fee", null: false
     t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 20200427170305) do
     t.datetime "reset_sent_at"
     t.string "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index [nil], name: "index_users_on_user_id"
   end
 
 end
