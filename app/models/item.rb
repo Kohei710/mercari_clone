@@ -5,20 +5,19 @@ class Item < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :reviews, dependent: :destroy
-  has_one :dealing, class_name: Dealing
+  has_one :dealing
 
   ###  VALIDATIONS
 
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence: true, length: { maximum: 255 }
   validate  :picture_size
   validates :picture, presence: true
-  validates :delivery_area, presence: true
-  validates :name, presence: true
-  validates :price, presence: true
+  validates :seller_area, presence: true
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :price, presence: true, :numericality => { :greater_than => 0 }
   validates :category, presence: true
   validates :days_to_ship, presence: true
   validates :condition, presence: true
@@ -31,7 +30,7 @@ class Item < ActiveRecord::Base
       スポーツ・レジャー:9, ハンドメイド:10, チケット:11, 自動車・オートバイ:12, その他:13
   }
 
-  enum delivery_area: {
+  enum seller_area: {
       北海道:1, 青森県:2, 岩手県:3, 宮城県:4, 秋田県:5, 山形県:6, 福島県:7,
       茨城県:8, 栃木県:9, 群馬県:10, 埼玉県:11, 千葉県:12, 東京都:13, 神奈川県:14,
       新潟県:15, 富山県:16, 石川県:17, 福井県:18, 山梨県:19, 長野県:20,

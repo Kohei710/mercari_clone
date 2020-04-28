@@ -6,28 +6,30 @@
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %><br><br>
 
     <%= f.label :name, "商品名" %>
-    <%= f.text_area :name, placeholder: "商品名を入力" %><br><br>
+    <%= f.text_area :name, placeholder: "40文字まで" %><br><br>
 
     <%= f.label :content, "商品詳細" %>
-    <%= f.text_area :content, placeholder: "商品の説明" %><br><br>
+    <%= f.text_area :content,
+                    placeholder: "商品の説明（必須）
+例）　2009年に2万円で購入した財布です。経年劣化で多少の傷はありますがあまり目立ちません" %><br><br>
 
     <%= f.label :price, "価格" %>
-    <%= f.number_field :price, placeholder: "数字を入力" %><br><br>
+    <%= f.number_field :price, placeholder: "0" %><br><br>
 
     <%= f.label :category, "カテゴリー" %>
-    <%= f.select :category, Item.categories.keys, {}, {class: 'hoge'} %><br><br>
+    <%= f.select :category, Item.categories.keys, {include_blank: true} %><br><br>
 
     <%= f.label :condition, "商品の状態" %>
-    <%= f.select :condition, Item.conditions.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
+    <%= f.select :condition, Item.conditions.keys, {include_blank: true} %><br><br>
 
-    <%= f.label :delivery_area, "配送元の地域" %>
-    <%= f.select :delivery_area, Item.delivery_areas.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
+    <%= f.label :seller_area, "配送元の地域" %>
+    <%= f.select :seller_area, Item.seller_areas.keys, {include_blank: true} %><br><br>
 
-    <%= f.label :shipping_fee, "送料負担" %>
-    <%= f.select :shipping_fee, Item.shipping_fees.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
+    <%= f.label :shipping_fee, "送料" %>
+    <%= f.select :shipping_fee, Item.shipping_fees.keys, {include_blank: true} %><br><br>
 
     <%= f.label :days_to_ship, "発送までの日数" %>
-    <%= f.select :days_to_ship, Item.days_to_ships.keys, {include_blank: true}, {class: 'hoge'} %><br><br>
+    <%= f.select :days_to_ship, Item.days_to_ships.keys, {include_blank: true} %><br><br>
 
 
   </div>

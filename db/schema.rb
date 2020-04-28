@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200427062242) do
+ActiveRecord::Schema.define(version: 20200412065710) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 20200427062242) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
-    t.integer "delivery_area"
-    t.string "name"
-    t.integer "price"
-    t.integer "category"
-    t.integer "days_to_ship"
-    t.integer "condition"
-    t.integer "shipping_fee"
+    t.integer "seller_area", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "category", null: false
+    t.integer "days_to_ship", null: false
+    t.integer "condition", null: false
+    t.integer "shipping_fee", default: 1, null: false
     t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -67,16 +67,6 @@ ActiveRecord::Schema.define(version: 20200427062242) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "content"
-    t.integer "user_id"
-    t.integer "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_reviews_on_item_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
