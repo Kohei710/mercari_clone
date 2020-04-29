@@ -1,7 +1,7 @@
 class DealingsController < ApplicationController
   before_action :logged_in_user
-  before_action :seller?, only:[:show]
-  before_action :buyer?, only:[:show]
+  before_action :seller?, only: [:show]
+  before_action :buyer?, only: [:show]
 
   def show
     @dealing = Dealing.find(params[:id])
