@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200427170305) do
+ActiveRecord::Schema.define(version: 20200429091649) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(version: 20200427170305) do
 
   create_table "dealings", force: :cascade do |t|
     t.integer "item_id"
-    t.integer "user_id"
     t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "seller_id"
+    t.integer "buyer_id"
+    t.index ["buyer_id"], name: "index_dealings_on_buyer_id"
     t.index ["item_id"], name: "index_dealings_on_item_id"
-    t.index ["user_id"], name: "index_dealings_on_user_id"
+    t.index ["seller_id"], name: "index_dealings_on_seller_id"
   end
 
   create_table "items", force: :cascade do |t|

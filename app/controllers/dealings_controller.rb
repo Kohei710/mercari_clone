@@ -9,18 +9,20 @@ class DealingsController < ApplicationController
   end
 
   def create
-    item = Item.find(params[:item_id])
-    @dealing = item.build_dealing
-    @dealing.user = current_user
+    @item = Item.find(params[:item_id])
+    @dealing = @item.build_dealing(
+        buyer: current_user,
+        seller: @item.user
+    )
     @dealing.save
-
     redirect_to dealing_path(@dealing)
   end
 
   def new
     @item = Item.find(params[:item_id])
     @dealing = @item.build_dealing
-    @dealing.user = current_user
+    @dealing.buyer_id = current_user.id
+    @dealing.seller_id = @item.user.id
   end
 
   def update_to_delivering
@@ -39,12 +41,12 @@ class DealingsController < ApplicationController
 
   def seller?
     dealing = Dealing.find(params[:id])
-    current_user == dealing.item.user
+    current_user == dealing.seller
   end
 
   def buyer?
     dealing = Dealing.find(params[:id])
-    current_user == dealing.user
+    current_user == dealing.buyer
   end
 
   helper_method :seller?
