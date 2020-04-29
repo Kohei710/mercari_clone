@@ -74,4 +74,10 @@ yarn-debug.log*
 !/storage/.keep
 
 # End of https://www.gitignore.io/api/rails
+
+# rubymine
 .idea/
+
+# item images
+/public/uploads/
+
