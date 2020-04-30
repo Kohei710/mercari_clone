@@ -1,11 +1,11 @@
 module DealingsHelper
   def seller?
     dealing = Dealing.find(params[:id])
-    current_user == dealing.seller
+    redirect_to root_url unless current_user == dealing.seller || current_user == dealing.buyer
   end
 
   def buyer?
     dealing = Dealing.find(params[:id])
-    current_user == dealing.buyer
+    redirect_to root_url unless current_user == dealing.seller || current_user == dealing.buyer
   end
 end

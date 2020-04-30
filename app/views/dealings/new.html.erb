@@ -2,6 +2,7 @@
 
 
 <div class="item">
+  <h4>出品者:<%= @item.user.name %></h4>
   <%= image_tag @item.picture.url, {class: "picture"} %>
   <%= @item.name %><br>
   価格:<%= @item.price.to_s(:delimited) %>円<br>
