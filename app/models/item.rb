@@ -54,8 +54,8 @@ class Item < ActiveRecord::Base
       出品者負担:1, 購入者負担:2
   }
 
-  def sold?(item)
-    item.dealing.present?
+  def sold?
+    dealing.present?
   end
 
   private
