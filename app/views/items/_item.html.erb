@@ -4,7 +4,7 @@
       <%= image_tag item.picture.url, {class: "picture"} %>
       <%= render "items/like", item: item %>
       <p>¥<%= item.price.to_s(:delimited) %></p>
-      <% if item.sold?(item) %>
+      <% if item.sold? %>
         <div class="sold-mark">SOLD</div>
       <% end %>
     </div>

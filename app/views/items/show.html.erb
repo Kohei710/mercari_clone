@@ -18,7 +18,7 @@
 
   <%= render "items/like", item: @item %>
 </div>
-<% if @item.sold?(@item) %>
+<% if @item.sold? %>
   <div class="btn btn-primary">売り切れました</div>
   <%= link_to "取引ページ", dealing_path(@item.dealing), class: "btn btn-primary" %>
 <% else %>
