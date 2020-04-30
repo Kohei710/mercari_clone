@@ -14,8 +14,13 @@ class DealingsController < ApplicationController
         buyer: current_user,
         seller: @item.user
     )
-    @dealing.save
-    redirect_to dealing_path(@dealing)
+    if @dealing.save
+      flash[:success] = "商品を購入しました"
+      redirect_to dealing_path(@dealing)
+    else
+      flash[:danger] = "商品を購入できませんでした"
+      render 'new'
+    end
   end
 
   def new
