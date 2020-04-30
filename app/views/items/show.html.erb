@@ -18,12 +18,19 @@
 
   <%= render "items/like", item: @item %>
 </div>
+
 <% if @item.sold? %>
-  <div class="btn btn-primary">売り切れました</div>
-  <%= link_to "取引ページ", dealing_path(@item.dealing), class: "btn btn-primary" %>
+  <% if @dealing.seller == current_user || @dealing.buyer == current_user %>
+    <%= link_to "取引ページ", dealing_path(@item.dealing), class: "btn btn-primary" %>
+  <% else %>
+    <div class="btn btn-primary">売り切れました</div>
+  <% end %>
 <% else %>
-  <%= link_to "購入画面に進む", new_dealing_path(:item_id => @item.id), class: "btn btn-primary" %>
+  <% if @item.user != current_user %>
+    <%= link_to "購入画面に進む", new_dealing_path(:item_id => @item.id), class: "btn btn-primary" %>
+  <% end %>
 <% end %>
+
 <div class="comment-feed">
   <h4>Comments</h4>
   <% @item.comments.each do |comment| %>

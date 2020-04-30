@@ -7,8 +7,8 @@
   価格:<%= @item.price.to_s(:delimited) %>円<br>
 </div>
 
-<%= form_for(@item.build_dealing) do |f| %>
+<%= form_for(@dealing) do |f| %>
   <div><%= hidden_field_tag :item_id, @item.id %></div>
   <%= f.submit "購入する", class: "btn btn-primary" %>
 <% end %>
-<%= link_to "戻る", (item_path(@item)), class: "btn btn-primary" %>
+<%= link_to "戻る", item_path(@item), class: "btn btn-primary" %>

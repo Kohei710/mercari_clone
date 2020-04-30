@@ -14,12 +14,14 @@ class DealingsController < ApplicationController
         buyer: current_user,
         seller: @item.user
     )
-    if @dealing.save
-      flash[:success] = "商品を購入しました"
-      redirect_to dealing_path(@dealing)
+    if @dealing.seller == @dealing.buyer
+      redirect_to root_path
+    elsif @dealing.save
+        flash[:success] = "商品を購入しました"
+        redirect_to dealing_path(@dealing)
     else
-      flash[:danger] = "商品を購入できませんでした"
-      render 'new'
+        flash[:danger] = "商品を購入できませんでした"
+        render 'new'
     end
   end
 
@@ -41,19 +43,4 @@ class DealingsController < ApplicationController
     @dealing.completed!
     redirect_to dealing_path
   end
-
-  private
-
-  def seller?
-    dealing = Dealing.find(params[:id])
-    current_user == dealing.seller
-  end
-
-  def buyer?
-    dealing = Dealing.find(params[:id])
-    current_user == dealing.buyer
-  end
-
-  helper_method :seller?
-  helper_method :buyer?
 end
