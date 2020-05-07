@@ -4,6 +4,7 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$mercari-red: #ea352d;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -14,6 +15,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
+  background-color: whitesmoke!important;
   padding-top: 60px;
 }
 
@@ -215,3 +217,36 @@ span.picture {
   }
 }
 
+.red-button {
+  background-color: $mercari-red;
+  width: 620px;
+  color: white;
+  border-radius: 0;
+  border: none;
+  margin: 10px 0 0  0;
+  padding: 15px;
+  text-align: center;
+  float: left;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.gray-button {
+  background-color: #888;
+  width: 620px;
+  color: white;
+  border-radius: 0;
+  border: none;
+  margin: 10px 0 0  0;
+  padding: 15px;
+  text-align: center;
+  float: left;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
