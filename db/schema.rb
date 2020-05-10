@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20200429091649) do
   end
 
   create_table "dealings", force: :cascade do |t|
-    t.integer "item_id"
+    t.integer "item_id", null: false
     t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
