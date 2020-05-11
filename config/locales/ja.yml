@@ -1,0 +1,7 @@
+ja:
+  enums:
+    dealing:
+      status:
+        payed: 発送待ち
+        delivering: 配達中
+        completed: 取引終了

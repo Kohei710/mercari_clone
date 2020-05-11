@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200427170305) do
+ActiveRecord::Schema.define(version: 20200429091649) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 20200427170305) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_comments_on_item_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "dealings", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "status", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id", null: false
+    t.index ["buyer_id"], name: "index_dealings_on_buyer_id"
+    t.index ["item_id"], name: "index_dealings_on_item_id"
+    t.index ["seller_id"], name: "index_dealings_on_seller_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -34,7 +46,7 @@ ActiveRecord::Schema.define(version: 20200427170305) do
     t.integer "category", null: false
     t.integer "days_to_ship", null: false
     t.integer "condition", null: false
-    t.integer "shipping_fee", default: 1, null: false
+    t.integer "shipping_fee", null: false
     t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
