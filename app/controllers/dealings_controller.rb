@@ -1,7 +1,8 @@
 class DealingsController < ApplicationController
+  include DealingsHelper
+
   before_action :logged_in_user
-  before_action :seller?, only: [:show]
-  before_action :buyer?, only: [:show]
+  before_action :correct_seller_or_buyer, only: [:show]
 
   def show
     @dealing = Dealing.find(params[:id])
@@ -10,13 +11,14 @@ class DealingsController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
+    redirect_to root_path if current_user == @item.user
+
     @dealing = @item.build_dealing(
         buyer: current_user,
         seller: @item.user
     )
-    if @dealing.seller == @dealing.buyer
-      redirect_to root_path
-    elsif @dealing.save
+
+    if @dealing.save
         flash[:success] = "商品を購入しました"
         redirect_to dealing_path(@dealing)
     else
@@ -28,8 +30,6 @@ class DealingsController < ApplicationController
   def new
     @item = Item.find(params[:item_id])
     @dealing = @item.build_dealing
-    @dealing.buyer_id = current_user.id
-    @dealing.seller_id = @item.user.id
   end
 
   def update_to_delivering
@@ -43,4 +43,11 @@ class DealingsController < ApplicationController
     @dealing.completed!
     redirect_to dealing_path
   end
+
+  private
+
+    def correct_seller_or_buyer
+      dealing = Dealing.find(params[:id])
+      redirect_to root_url unless dealing.accessible_user?(current_user)
+    end
 end

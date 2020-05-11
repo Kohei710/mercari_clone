@@ -17,4 +17,16 @@ class Dealing < ApplicationRecord
       completed: 3
   }
 
+  ### FUNCTION
+  def seller?(user)
+    self.seller == user
+  end
+
+  def buyer?(user)
+    self.buyer == user
+  end
+
+  def accessible_user?(user)
+    self.seller?(user) || self.buyer?(user)
+  end
 end

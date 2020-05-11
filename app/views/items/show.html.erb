@@ -20,7 +20,7 @@
 </div>
 
 <% if @item.sold? %>
-  <% if @dealing.seller == current_user || @dealing.buyer == current_user %>
+  <% if @dealing.accessible_user?(current_user) %>
     <%= link_to "取引ページ", dealing_path(@item.dealing), class: "btn btn-primary" %>
   <% else %>
     <div class="btn btn-primary">売り切れました</div>
