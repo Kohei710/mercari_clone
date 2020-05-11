@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20200429091649) do
 
   create_table "dealings", force: :cascade do |t|
     t.integer "item_id", null: false
-    t.integer "status", default: 1
+    t.integer "status", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "seller_id"
-    t.integer "buyer_id"
+    t.integer "seller_id", null: false
+    t.integer "buyer_id", null: false
     t.index ["buyer_id"], name: "index_dealings_on_buyer_id"
     t.index ["item_id"], name: "index_dealings_on_item_id"
     t.index ["seller_id"], name: "index_dealings_on_seller_id"
