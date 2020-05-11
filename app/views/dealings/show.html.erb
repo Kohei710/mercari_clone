@@ -8,14 +8,14 @@
   価格:<%= @item.price.to_s(:delimited) %>円<br>
 <!--  出品者ページ-->
   <% if seller? %>
-    <% if @dealing.status == 'payed' %>
+    <% if @dealing.payed? %>
       <h3>購入者住所：dealing.user.address</h3>
       <h3><%= @item.days_to_ship %>してください</h3>
       <%= link_to "発送完了", update_to_delivering_dealing_path, method: :patch %>
     <% end %>
 <!--    購入者ページ-->
   <% elsif buyer? %>
-    <% if  @dealing.status == 'delivering' %>
+    <% if  @dealing.delivering? %>
       <%= link_to "商品が到着", update_to_completed_dealing_path, method: :patch %>
     <% end %>
   <% end %>

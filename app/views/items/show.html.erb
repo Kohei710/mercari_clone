@@ -27,7 +27,7 @@
   <% end %>
 <% else %>
   <% if @item.user != current_user %>
-    <%= link_to "購入画面に進む", new_dealing_path(:item_id => @item.id), class: "btn btn-primary" %>
+    <%= link_to "購入画面に進む", new_dealing_path(item_id: @item.id), class: "btn btn-primary" %>
   <% end %>
 <% end %>
 
