@@ -1,10 +1,11 @@
 class Item < ActiveRecord::Base
 
   ### ASSOCIATION
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  has_one :dealing, dependent: :destroy
 
   ###  VALIDATIONS
 
@@ -53,7 +54,9 @@ class Item < ActiveRecord::Base
       出品者負担:1, 購入者負担:2
   }
 
-
+  def sold?
+    dealing.present?
+  end
 
   private
 

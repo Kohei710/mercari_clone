@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @dealing = @item.dealing
     @comment = @item.comments.build
   end
 
@@ -33,7 +34,10 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:content, :picture, :seller_area, :name, :price, :category, :days_to_ship, :condition, :shipping_fee)
+    params.require(:item).permit(
+        :content, :picture, :seller_area, :name, :price,
+        :category, :days_to_ship, :condition, :shipping_fee
+    )
   end
 
   def correct_user

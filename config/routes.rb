@@ -24,10 +24,16 @@ Rails.application.routes.draw do
       get :reviewing, :reviewers
     end
   end
+  resources :dealings, only: [:create, :new, :show] do
+    member do
+      patch :update_to_delivering
+      patch :update_to_completed
+    end
+  end
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :items,          only: [:new, :show, :create, :destroy]
+  resources :items,               only: [:new, :show, :create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :comments,            only: [:create]
   resources :likes,               only: [:create, :destroy]
