@@ -25,7 +25,7 @@ User.create!(
 end
 
 users = User.order(:created_at).take(6)
-image_path = File.join(Rails.root, "app/assets/images/kitten.jpg")
+image_path = File.join(Rails.root, "app/assets/images/sample_pic.jpg")
 10.times do
   users.each do |user|
     user.items.create!(

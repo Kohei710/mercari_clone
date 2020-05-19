@@ -1,7 +1,9 @@
-<h2>取引詳細</h2>
-<h3>現在の取引状況：<%= @dealing.status_i18n %></h3>
 
 <div class="item">
+
+  <h2>取引詳細</h2>
+  <h3>現在の取引状況：<%= @dealing.status_i18n %></h3>
+
   <%= @item.name %><br>
   <h3>出品者:<%= @dealing.seller.name %></h3>
   <%= image_tag @item.picture.url, {class: "picture"} %><br>
