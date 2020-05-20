@@ -5,11 +5,13 @@ $gray-medium-light: #eaeaea;
 header {
   color: white;
   border: 0;
+  float: left;
 
   img {
     width: 134px;
     height: 36px;
     margin: 10px;
+    float: left;
   }
   #logo {
     float: left;
@@ -26,8 +28,11 @@ header {
   background-color: white;
   border: none;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  float: left;
 
   .container {
+    margin: 0 auto;
+    width: 900px;
     height: 70px;
   }
 }
