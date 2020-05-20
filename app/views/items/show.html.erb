@@ -1,57 +1,57 @@
-<h2>Item#show</h2>
-
-<span class="user">
-  <%= link_to @item.user.name, @item.user %>
-  <%= link_to gravatar_for(@item.user, size: 50), item_path(@item) %>
-</span>
-
-<div class="item">
-  <%= image_tag @item.picture.url, {class: "picture"} %>
-  <%= @item.name %><br>
-  <%= @item.content %><br>
-  発送元の地域:<%= @item.seller_area %><br>
-  価格:<%= @item.price.to_s(:delimited) %>円<br>
-  カテゴリー:<%= @item.category %><br>
-  発送までの日数:<%= @item.days_to_ship %><br>
-  商品の状態:<%= @item.condition %><br>
-  送料:<%= @item.shipping_fee %><br>
-
-  <%= render "items/like", item: @item %>
+<div class="item-box">
+  <h2><%= @item.name %></h2>
+  <div class="main-content">
+      <%= image_tag @item.picture.url, {class: "picture"} %>
+      <%= render "items/item_table", item: @item %>
+  </div>
+  <br>
+  <div class="price-box">
+    <span class="item-price">¥<%= @item.price.to_s(:delimited) %></span>
+    <% if @item.shipping_fee == '出品者負担' %>
+      <span class="shipping-fee">送料込み</span>
+    <% else %>
+      <span class="shipping-fee">着払い</span>
+    <% end %>
+  </div>
+  <div>
+    <% if @item.sold? %>
+      <% if @dealing.seller == current_user || @dealing.buyer == current_user %>
+        <%= link_to "取引ページ", dealing_path(@item.dealing), class: "gray-button" %>
+      <% else %>
+        <div class="gray-button">売り切れました</div>
+      <% end %>
+    <% else %>
+      <% if @item.user != current_user %>
+        <%= link_to "購入画面に進む", new_dealing_path(:item_id => @item.id), class: "red-button" %>
+      <% end %>
+    <% end %>
+  </div>
+  <h3><%= @item.content %></h3>
+  <p><%= render "items/like", item: @item %></p>
 </div>
 
-<% if @item.sold? %>
-  <% if @dealing.accessible_user?(current_user) %>
-    <%= link_to "取引ページ", dealing_path(@item.dealing), class: "btn btn-primary" %>
-  <% else %>
-    <div class="btn btn-primary">売り切れました</div>
-  <% end %>
-<% else %>
-  <% if @item.user != current_user %>
-    <%= link_to "購入画面に進む", new_dealing_path(item_id: @item.id), class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+<div class="comment-box">
+  <div class="comment-feed">
+    <h4>Comments</h4>
+    <% @item.comments.each do |comment| %>
+      <h4>
+        <%= comment.content %>
+      </h4>
+    <% end %>
+  </div>
 
-<div class="comment-feed">
-  <h4>Comments</h4>
-  <% @item.comments.each do |comment| %>
-    <li>
-      <%= comment.content %>
-    </li>
-  <% end %>
-</div>
-
-<div class="comment-form">
-  <h4>Comments</h4>
-  <%= form_for(@comment) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <div class="field">
-      <%= f.text_area :content, placeholder: "Comment" %>
-    </div>
-    <div class="field-hide">
-      <%= f.hidden_field :item_id, value: @item.id %>
-    </div>
-    <%= f.submit "Comment", class: "btn btn-primary" %>
-  <% end %>
+  <div class="comment-form">
+    <%= form_for(@comment) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="field">
+        <%= f.text_area :content, placeholder: "相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。" %>
+      </div>
+      <div class="field-hide">
+        <%= f.hidden_field :item_id, value: @item.id %>
+      </div>
+      <%= f.submit "コメントする", class: "gray-button" %>
+    <% end %>
+  </div>
 </div>
 
 <span class="timestamp">

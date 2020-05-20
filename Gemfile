@@ -15,7 +15,8 @@ gem 'coffee-rails',            '4.2.2'
 gem 'jquery-rails',            '4.3.1'
 gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.7.0'
-gem 'enum_help',                '0.0.17'
+gem 'enum_help',               '0.0.17'
+gem 'mysql2',                   '0.5.3'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -40,6 +41,10 @@ end
 group :production do
   gem 'pg',   '0.20.0'
   # gem 'fog',  '1.42'
+end
+
+group :production, :staging do
+    gem 'unicorn', '5.4.1'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります

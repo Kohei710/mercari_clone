@@ -25,14 +25,14 @@ User.create!(
 end
 
 users = User.order(:created_at).take(6)
-image_path = File.join(Rails.root, "app/assets/images/kitten.jpg")
+image_path = File.join(Rails.root, "app/assets/images/sample_pic.jpg")
 10.times do
   users.each do |user|
     user.items.create!(
         content: Faker::Lorem.sentence(5),
         picture: File.new(image_path),
         seller_area: rand(1..47),
-        name: Faker::Lorem.word,
+        name: Faker::Zelda.game,
         price: rand(100..20000),
         category: rand(1..13),
         days_to_ship: rand(1..3),

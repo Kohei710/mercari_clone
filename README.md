@@ -1,41 +1,18 @@
-# Ruby on Rails チュートリアルのサンプルアプリケーション
+このアプリはメルカリのクローンアプリです。
+rails tutorial をベースに作られているのでフォロー機能など本家にはない機能もあります。
 
-これは、次の教材で作られたサンプルアプリケーションです。   
-[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
-[Michael Hartl](http://www.michaelhartl.com/) 著
+[機能一覧]
+・user登録
+・user情報変更機能
+・メール認証
+・item投稿
+・like機能
+・comment機能
+・擬似購入機能（決済は未導入）
 
-## ライセンス
+[作品リンク」
+https://quiet-ridge-30849.herokuapp.com/
 
-[Ruby on Rails チュートリアル](https://railstutorial.jp/)内にある
-ソースコードはMITライセンスとBeerwareライセンスのもとで公開されています。
-詳細は [LICENSE.md](LICENSE.md) をご覧ください。
-
-## 使い方
-
-このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
-その後、次のコマンドで必要になる RubyGems をインストールします。
-
-```
-$ bundle install --without production
-```
-
-その後、データベースへのマイグレーションを実行します。
-
-```
-$ rails db:migrate
-```
-
-最後に、テストを実行してうまく動いているかどうか確認してください。
-
-```
-$ rails test
-```
-
-テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-
-```
-$ rails server
-```
-
-詳しくは、[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
-を参考にしてください。
+[test account]
+email: example@railstutorial.org
+password: foobar
