@@ -1,7 +1,7 @@
 <div class="item-box">
   <h2><%= @item.name %></h2>
   <div class="main-content">
-      <%= image_tag @item.picture.url, {class: "picture"} %>
+      <%= image_tag @item.img @item.image.attached?, {class: "picture"} %>
       <%= render "items/item_table", item: @item %>
   </div>
   <br>
