@@ -6,7 +6,7 @@
 
   <%= @item.name %><br>
   <h3>出品者:<%= @dealing.seller.name %></h3>
-  <%= image_tag @item.image, {class: "picture"} %><br>
+  <%= image_tag @item.image, {class: "picture"} if @item.image.attached? %><br>
   価格:<%= @item.price.to_s(:delimited) %>円<br>
 <!--  出品者ページ-->
   <% if @dealing.seller?(current_user) %>

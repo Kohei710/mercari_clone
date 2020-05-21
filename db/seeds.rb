@@ -1,4 +1,4 @@
-User.create!(
+User.create(
     name:  "Example User",
     email: "example@railstutorial.org",
     user_name: "example_user",
@@ -13,7 +13,7 @@ User.create!(
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
-  User.create!(
+  User.create(
       name:  name,
       email: email,
       user_name: "user_name#{n}",
@@ -28,7 +28,7 @@ users = User.order(:created_at).take(6)
 image_path = File.join(Rails.root, "app/assets/images/sample_pic.jpg")
 10.times do
   users.each do |user|
-    user.items.create!(
+    user.items.create(
         content: Faker::Lorem.sentence(5),
         image: File.new(image_path),
         seller_area: rand(1..47),

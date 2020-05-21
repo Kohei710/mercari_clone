@@ -18,6 +18,7 @@ gem 'jbuilder',                '2.7.0'
 gem 'enum_help',               '0.0.17'
 gem 'mysql2',                   '0.5.3'
 gem "aws-sdk-s3", require: false
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
