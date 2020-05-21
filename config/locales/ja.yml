@@ -1,4 +1,8 @@
 ja:
+  errors:
+    messages:
+      restrict_dependent_destroy:
+        many: "%{record}が存在しているので削除できません"
   enums:
     dealing:
       status:
