@@ -6,15 +6,16 @@ class Item < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_one :dealing, dependent: :destroy
+  has_one_attached :image
 
   ###  VALIDATIONS
 
   default_scope -> { order(created_at: :desc) }
-  mount_uploader :picture, PictureUploader
+  # mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 255 }
-  validate  :picture_size
-  validates :picture, presence: true
+  # validate  :picture_size
+  # validates :picture, presence: true
   validates :seller_area, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :price, presence: true, :numericality => { :greater_than => 0 }

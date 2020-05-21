@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',                   '5.1.6'
+gem 'rails',                   '5.2.0'
 gem 'bcrypt',                  '3.1.12'
 gem 'faker',                   '1.7.3'
 gem 'carrierwave',             '1.2.2'
@@ -17,6 +17,8 @@ gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.7.0'
 gem 'enum_help',               '0.0.17'
 gem 'mysql2',                   '0.5.3'
+gem "aws-sdk-s3", require: false
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

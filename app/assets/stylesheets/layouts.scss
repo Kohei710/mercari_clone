@@ -10,6 +10,7 @@ header {
     width: 134px;
     height: 36px;
     margin: 10px;
+    float: left;
   }
   #logo {
     float: left;
@@ -27,9 +28,6 @@ header {
   border: none;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
 
-  .container {
-    height: 70px;
-  }
 }
 
 
