@@ -2,7 +2,7 @@
   <section class="card" id="item-<%= item.id %>">
     <%= link_to(item_path(item)) do %>
     <div class="card-picture">
-      <%= image_tag item.picture.url, {class: "picture"} %>
+      <%= image_tag item.image, {class: "picture"} %>
       <%= render "items/like", item: item %>
       <p>¥<%= item.price.to_s(:delimited) %></p>
       <% if item.sold? %>

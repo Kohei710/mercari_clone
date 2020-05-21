@@ -1,7 +1,7 @@
 <div class="item-box">
   <h2>購入内容の確認</h2>
   <h4>出品者:<%= @item.user.name %></h4>
-  <%= image_tag @item.picture.url, {class: "picture"} %>
+  <%= image_tag @item.image, {class: "picture"} %>
   <%= @item.name %><br>
   価格:<%= @item.price.to_s(:delimited) %>円<br>
 
