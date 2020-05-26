@@ -21,4 +21,5 @@
       <%= link_to "商品が到着", update_to_completed_dealing_path, method: :patch %>
     <% end %>
   <% end %>
+  <p><%= render "dealings/review", item: @item %></p>
 </div>

@@ -4,6 +4,7 @@ class Dealing < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :buyer,  class_name: "User"
   belongs_to :item
+  has_many :reviews, dependent: :destroy
 
   ### VALIDATION
   validates :item_id, presence: true
