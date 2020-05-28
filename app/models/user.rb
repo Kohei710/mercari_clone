@@ -115,6 +115,11 @@ class User < ApplicationRecord
     self.likes.exists?(item_id: item.id)
   end
 
+  def already_reviewed?(dealing)
+    review = Review.find_by(dealing_id: dealing.id, reviewer_id: current_user.id)
+    review.exists?
+  end
+
   private
 
   # メールアドレスをすべて小文字にする

@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 2020_05_23_124600) do
     t.integer "evaluation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dealing_id", "reviewed_id"], name: "index_reviews_on_dealing_id_and_reviewed_id", unique: true
+    t.index ["dealing_id", "reviewer_id"], name: "index_reviews_on_dealing_id_and_reviewer_id", unique: true
     t.index ["dealing_id"], name: "index_reviews_on_dealing_id"
     t.index ["reviewed_id"], name: "index_reviews_on_reviewed_id"
     t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"

@@ -1,11 +1,10 @@
-
 <div class="item">
-
   <h2>取引詳細</h2>
   <h3>現在の取引状況：<%= @dealing.status_i18n %></h3>
 
   <%= @item.name %><br>
   <h3>出品者:<%= @dealing.seller.name %></h3>
+  <h3>購入者:<%= @dealing.buyer.name %></h3>
   <%= image_tag @item.image, {class: "picture"} if @item.image.attached? %><br>
   価格:<%= @item.price.to_s(:delimited) %>円<br>
 <!--  出品者ページ-->
@@ -21,5 +20,7 @@
       <%= link_to "商品が到着", update_to_completed_dealing_path, method: :patch %>
     <% end %>
   <% end %>
-  <p><%= render "dealings/review", item: @item %></p>
+  <% if @dealing.completed? %>
+    <%= render "dealings/review", dealing: @dealing %>
+  <% end %>
 </div>

@@ -50,4 +50,6 @@ class DealingsController < ApplicationController
       dealing = Dealing.find(params[:id])
       redirect_to root_url unless dealing.accessible_user?(current_user)
     end
+
+
 end

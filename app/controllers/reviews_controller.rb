@@ -13,6 +13,9 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to root_path
       flash[:info] = "レビューを送信しました。"
+    else
+      redirect_to root_path
+      flash[:danger] = "ひと取引に一度評価を送れます。"
     end
   end
 end
