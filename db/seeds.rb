@@ -30,7 +30,7 @@ image_path = File.join(Rails.root, "app/assets/images/sample_pic.jpg")
   users.each do |user|
     user.items.create(
         content: Faker::Lorem.sentence(5),
-        image: File.new(image_path),
+        image: open("./db/fixtures/sample_pic.jpg"),
         seller_area: rand(1..47),
         name: Faker::Zelda.game,
         price: rand(100..20000),

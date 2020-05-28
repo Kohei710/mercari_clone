@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @dealing = @item.dealing
     @comment = @item.comments.build
+    @review = Review.where(reviewed_id: @item.user_id)
   end
 
   def new

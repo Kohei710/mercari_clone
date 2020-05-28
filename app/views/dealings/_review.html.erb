@@ -1,0 +1,30 @@
+<% if @dealing.already_reviewed?(current_user) %>
+<div class="review">
+    <h2>この取引を評価しましょう</h2>
+   <div class="review-form">
+      <%= form_for(@dealing.reviews.build) do |f| %>
+        <div><%= hidden_field_tag :dealing_id, @dealing.id %></div>
+        <div><%= hidden_field_tag :evaluation, 1 %></div>
+        <%= button_tag(class: "review-btn") do %>
+          <i class="far fa-smile-wink"></i>
+        <% end %>
+      <% end %>
+
+    <%= form_for(@dealing.reviews.build) do |f| %>
+      <div><%= hidden_field_tag :dealing_id, @dealing.id %></div>
+      <div><%= hidden_field_tag :evaluation, 2 %></div>
+      <%= button_tag(class: "review-btn") do %>
+        <i class="far fa-meh"></i>
+      <% end %>
+    <% end %>
+
+    <%= form_for(@dealing.reviews.build) do |f| %>
+      <div><%= hidden_field_tag :dealing_id, @dealing.id %></div>
+      <div><%= hidden_field_tag :evaluation, 3 %></div>
+      <%= button_tag(class: "review-btn") do %>
+        <i class="far fa-frown"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<% end %>

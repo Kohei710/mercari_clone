@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_125730) do
+ActiveRecord::Schema.define(version: 2020_05_23_124600) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -92,6 +92,20 @@ ActiveRecord::Schema.define(version: 2020_05_20_125730) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "reviewer_id", null: false
+    t.bigint "reviewed_id", null: false
+    t.bigint "dealing_id", null: false
+    t.integer "evaluation", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dealing_id", "reviewed_id"], name: "index_reviews_on_dealing_id_and_reviewed_id", unique: true
+    t.index ["dealing_id", "reviewer_id"], name: "index_reviews_on_dealing_id_and_reviewer_id", unique: true
+    t.index ["dealing_id"], name: "index_reviews_on_dealing_id"
+    t.index ["reviewed_id"], name: "index_reviews_on_reviewed_id"
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -116,4 +130,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_125730) do
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
+  add_foreign_key "reviews", "dealings"
+  add_foreign_key "reviews", "users", column: "reviewed_id"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
 end

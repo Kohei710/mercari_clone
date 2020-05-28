@@ -2,7 +2,11 @@
   <tbody>
   <tr>
     <td>出品者</td>
-    <td><%= link_to @item.user.name, @item.user %></td>
+    <td><%= link_to @item.user.name, @item.user %> <br>
+      <i class="far fa-smile-wink"> <%= @review.where(evaluation: 1).count %>  </i>
+      <i class="far fa-meh"> <%= @review.where(evaluation: 2).count %>  </i>
+      <i class="far fa-frown"> <%= @review.where(evaluation: 3).count %>  </i>
+    </td>
   </tr>
   <tr>
     <td>カテゴリー</td>

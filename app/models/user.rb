@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :dealings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
@@ -112,6 +113,11 @@ class User < ApplicationRecord
 
   def already_liked?(item)
     self.likes.exists?(item_id: item.id)
+  end
+
+  def already_reviewed?(dealing)
+    review = Review.find_by(dealing_id: dealing.id, reviewer_id: current_user.id)
+    review.exists?
   end
 
   private
